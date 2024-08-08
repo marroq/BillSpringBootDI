@@ -1,8 +1,14 @@
 package com.dfigueroa.di.BillSpringBootDI.model;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Client {
 
+    @Value("${config.client.name}")
     private String name;
+    @Value("${config.client.lastName}")
     private String lastName;
 
     public String getName() {
