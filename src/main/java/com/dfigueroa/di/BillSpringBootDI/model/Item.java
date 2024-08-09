@@ -25,4 +25,8 @@ public class Item {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public double getTotalProducts() {
+        return quantity * product.getPrice();
+    }
 }

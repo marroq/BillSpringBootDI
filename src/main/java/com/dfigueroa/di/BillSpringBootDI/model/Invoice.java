@@ -41,4 +41,10 @@ public class Invoice {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+
+    public double getTotal() {
+        return items.stream()
+                .map(item -> item.getTotalProducts())
+                .reduce(0.0, (sum, totalProducts) -> sum + totalProducts);
+    }
 }
