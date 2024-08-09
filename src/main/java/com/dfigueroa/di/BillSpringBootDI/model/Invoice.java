@@ -1,5 +1,6 @@
 package com.dfigueroa.di.BillSpringBootDI.model;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,11 @@ public class Invoice {
 
     @Autowired
     private List<Item> items;
+
+    @PostConstruct
+    private void init() {
+        client.setName(client.getName().concat(" EDITED"));
+    }
 
     public Client getClient() {
         return client;
