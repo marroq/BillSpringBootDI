@@ -3,7 +3,12 @@ package com.dfigueroa.di.BillSpringBootDI.model;
 public class Item {
 
     private Product product;
-    private Integer quantity;
+    private int quantity;
+
+    public Item(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
 
     public Product getProduct() {
         return product;
@@ -13,11 +18,11 @@ public class Item {
         this.product = product;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 }

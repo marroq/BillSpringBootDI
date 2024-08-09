@@ -11,8 +11,11 @@ public class Invoice {
 
     @Autowired
     private Client client;
+
     @Value("${config.invoice.description}")
     private String description;
+
+    @Autowired
     private List<Item> items;
 
     public Client getClient() {

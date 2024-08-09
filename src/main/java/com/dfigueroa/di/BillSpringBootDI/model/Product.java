@@ -3,7 +3,12 @@ package com.dfigueroa.di.BillSpringBootDI.model;
 public class Product {
 
     private String name;
-    private Integer price;
+    private double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
 
     public String getName() {
         return name;
@@ -13,11 +18,11 @@ public class Product {
         this.name = name;
     }
 
-    public Integer getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }
