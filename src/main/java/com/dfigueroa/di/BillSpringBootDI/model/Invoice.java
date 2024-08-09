@@ -1,6 +1,7 @@
 package com.dfigueroa.di.BillSpringBootDI.model;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -21,7 +22,13 @@ public class Invoice {
 
     @PostConstruct
     private void init() {
-        client.setName(client.getName().concat(" EDITED"));
+        System.out.println("Showing client values after created instance");
+        System.out.println(client.getName().concat(" ").concat(client.getLastName()));
+    }
+
+    @PreDestroy
+    private void destroy() {
+        System.out.println("Executing when destroying instance of Invoice bean");
     }
 
     public Client getClient() {
