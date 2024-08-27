@@ -1,5 +1,6 @@
 package com.dfigueroa.di.BillSpringBootDI.model;
 
+import com.dfigueroa.di.BillSpringBootDI.service.ClientService;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 public class Invoice {
 
     @Autowired
-    private Client client;
+    private ClientService clientService;
 
     @Value("${config.invoice.description}")
     private String description;
@@ -23,20 +24,14 @@ public class Invoice {
     @PostConstruct
     private void init() {
         System.out.println("Showing client values after created instance");
-        System.out.println(client.getName().concat(" ").concat(client.getLastName()));
+        System.out.println(clientService.getAllClients().stream().map(client ->
+                client.getName().concat(client.getLastName()))
+        );
     }
 
     @PreDestroy
     private void destroy() {
         System.out.println("Executing when destroying instance of Invoice bean");
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 
     public String getDescription() {
