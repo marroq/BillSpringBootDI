@@ -11,6 +11,13 @@ public class Client {
     @Value("${config.client.lastName}")
     private String lastName;
 
+    public Client() {}
+
+    public Client(String name, String lastName) {
+        this.name = name;
+        this.lastName = lastName;
+    }
+
     public String getName() {
         return name;
     }
